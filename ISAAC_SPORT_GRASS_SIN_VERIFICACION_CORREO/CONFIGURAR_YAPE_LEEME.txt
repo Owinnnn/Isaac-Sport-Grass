@@ -1,0 +1,14 @@
+ISAAC SPORT GRASS - BOTON CONFIGURAR YAPE
+
+1. Abrir esta carpeta en NetBeans 25.
+2. Ejecutar Clean and Build y Run en Tomcat 10.1.
+3. Iniciar sesion como ADMIN, menu lateral Configurar Yape.
+4. Guardar el numero receptor de 9 digitos y subir el QR real de Yape (JPG, PNG, WEBP, hasta 4 MB).
+5. Se muestra numero guardado y vista previa del QR.
+6. En usuario, todas las canchas muestran el mismo numero y QR en pago.jsp; se cobra 50% del precio de cada cancha.
+7. El cliente adjunta voucher y numero de operacion; la solicitud aparece en Vista general y campana de notificaciones.
+8. El administrador verifica los fondos reales en su Yape antes de aprobar.
+
+IMPORTANTE: No ejecutar de nuevo el SQL si tu tabla payment_settings ya existe y usa config_key, config_value.
+Si la pagina sigue indicando error 500 en payments/config, revisar los registros de Tomcat: puede haber otro fallo independiente.
+No se ha probado el pago real en un Tomcat/MySQL externo.

@@ -1,0 +1,29 @@
+ISAAC SPORT GRASS - RECONSTRUIDO / NETBEANS 25 / TOMCAT 10.1 / MYSQL 8
+
+1. HACER RESPALDO si ya tienes usuarios o reservas.
+2. Abrir en NetBeans 25 la carpeta ISAAC_SPORT_GRASS_RECONSTRUIDO (Maven web/war).
+3. MySQL Workbench: SI YA TENIAS BASE ISAAC: ejecutar database/02_ACTUALIZAR_BASE_EXISTENTE.sql (solo esta).
+   SI ES INSTALACION DESDE CERO: ejecutar database/01_INSTALACION_NUEVA.sql (solo esta).
+4. Verificar MySQL en localhost:3306, usuario root, contraseña vacía como valores de ejemplo de Database.java;
+   configurar ISG_DB_URL/ISG_DB_USER/ISG_DB_PASSWORD si son distintos.
+5. Crear administrador: variables ISG_ADMIN_EMAIL e ISG_ADMIN_PASSWORD (minimo 12 caracteres)
+   ANTES de iniciar Tomcat. Si ya existe admin NO cambia su contraseña.
+6. Ejecutar Clean and Build -> Run en NetBeans con Tomcat 10.1 y JDK 17/21.
+7. EN ADMIN -> PANEL PRINCIPAL -> Validacion de separaciones Yape: guardar los 9 dígitos
+   del teléfono real del propietario y subir su imagen QR auténtica.
+8. EN USUARIO: elegir cancha y horario -> pagina pago.jsp -> ver QR -> hacer Yape del 50%
+   -> adjuntar voucher y referencia -> bandeja admin y campana -> verificar en cuenta Yape
+   -> aprobar/rechazar. NO se verifica el abono automaticamente.
+9. Imágenes guardadas fuera de webapps en la carpeta <home_de_tomcat>/IsaacSportGrassPrivado/pagos;
+   opcional ISG_UPLOAD_DIR con ruta privada propia del servidor.
+10. Si el correo de verificación no funciona, configurar SMTP de acuerdo con README.md original.
+
+IMPORTANTE:
+- Si al cargar admin ya hay reservas y usuarios, NO ejecutar 01_INSTALACION_NUEVA.sql.
+- En instalaciones existentes, 02_ACTUALIZAR_BASE_EXISTENTE.sql se diseñó para columnas previas,
+  pero debes hacer backup; no se ha probado contra todos los esquemas modificados manualmente.
+- La campana de notificaciones se actualiza cada 10 segundos mientras admin.jsp está abierta.
+- Reservas pendientes de pago caducan después de 20 minutos; voucher enviado queda EN_REVISION.
+- Solo fotos reales del QR del dueño: el proyecto NO trae QR de cobro ficticio.
+- Las contraseñas de usuarios se guardan con BCrypt. No publiques credenciales en código.
+- Proyecto reconstruido y validado con javac/JS; sin prueba de ejecución real con tu MySQL/Tomcat.

@@ -1,0 +1,15 @@
+PROYECTO FINAL - ISAAC SPORT GRASS
+Origen: archivo RAR enviado por el usuario.
+Se mantiene el proyecto NetBeans y el PaymentServlet con notificaciones en soporte incluidos en el RAR.
+No se incorporo correo de notificaciones para aprobaciones Yape: esas notificaciones se guardan en support_messages.
+
+1. Importar desde NetBeans 25 el proyecto Maven cuya raiz contiene pom.xml.
+2. Instalar MySQL Server (Workbench por si solo NO es el servidor), y Tomcat 10.1, JDK 17 o 21.
+3. Consultar database/LEER_ANTES_DE_IMPORTAR.txt para elegir correctamente la instalacion SQL.
+4. En la otra PC configurar credenciales y puerto de MySQL usados por Database.java.
+5. Crear el administrador si la base es nueva: revisar README y BootstrapAdmin.
+6. Restaurar QR/vouchers Yape por separado; el SQL no guarda sus imagenes.
+7. Desde NetBeans: Clean and Build > Run.
+8. El registro de usuarios de esta version ORIGINAL incluye verificacion de correo SMTP; no se ha modificado porque la solicitud actual fue incorporar SQL, no cambiar el registro. Los avisos Yape al soporte no usan correo.
+
+El archivo isaac.sql de tu PC actual NO fue proporcionado y por tanto NO se incluye. Copialo a database antes de migrar tus datos.

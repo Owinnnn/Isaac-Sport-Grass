@@ -1,0 +1,28 @@
+ISAAC SPORT GRASS - REGISTRO SIN VERIFICACION POR CORREO
+
+CAMBIOS:
+- El registro guarda el usuario directamente en MySQL, con verified=1.
+- El inicio de sesion no consulta verified ni exige enlace de correo.
+- Eliminados SMTP, MailService, Reenviar verificacion y verificar.jsp.
+- Se mantiene el correo como identificador de login y su formato se valida.
+- Se mantiene la pregunta humana de suma (CAPTCHA), es independiente del correo.
+- Sin cambios en pagos Yape, reservas, tienda, soporte y notificaciones internas.
+
+PARA NETBEANS:
+1) Haz respaldo de tu base actual.
+2) Abre la carpeta del proyecto en NetBeans 25.
+3) Ejecuta Clean and Build y luego Run.
+4) En el navegador presiona Ctrl+F5 para renovar JS y JSP.
+5) Registra un correo no utilizado, con contraseña de 8 caracteres o mas.
+6) Inicia sesion inmediatamente con esas credenciales.
+
+BASE EXISTENTE:
+No es necesario ejecutar SQL para iniciar sesion con cuentas no verificadas.
+Opcionalmente ejecuta database/04_QUITAR_VERIFICACION_CORREO.sql para marcar cuentas antiguas como verified=1.
+No importes 01_INSTALACION_NUEVA.sql sobre una base con datos sin revisar.
+
+OTRA COMPUTADORA:
+La base de datos real no viaja dentro del proyecto.
+Para conservar usuarios y reservas usa tu exportacion de Workbench isaac.sql.
+Asegura mismo nombre de BD y configura Database.java y Tomcat en el destino.
+Los comprobantes QR Yape son archivos privados externos a MySQL.

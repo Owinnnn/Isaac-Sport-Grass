@@ -1,0 +1,29 @@
+ISAAC SPORT GRASS - INSTALACION EN OTRA PC
+
+IMPORTANTE: el archivo isaac.sql exportado en TU MySQL Workbench NO estaba incluido en el RAR recibido. Debes copiarlo a esta carpeta por tu cuenta. Los dos scripts existentes crean o actualizan ESTRUCTURA; NO contienen tus usuarios, reservas y mensajes actuales.
+
+OPCION A - QUIERES TUS DATOS ACTUALES (RECOMENDADO):
+1. En TU PC exportar isaac_sport_grass con Data Export > Dump Structure and Data > Self-Contained File > isaac.sql.
+2. Copiar isaac.sql a esta carpeta.
+3. En la PC nueva verificar que MySQL Server este iniciado y conecte Workbench.
+4. Importar isaac.sql mediante Server > Data Import > Import from Self-Contained File, o abrirlo como SQL Script.
+5. Si el export NO trae CREATE DATABASE / USE, crear y seleccionar isaac_sport_grass antes de importar.
+6. No ejecutar 01 ni 02 despues de restaurar una exportacion completa y actualizada, salvo migracion cuidadosamente evaluada.
+7. Ejecutar 03_VERIFICAR_EN_OTRA_PC.sql para revisar las tablas.
+
+OPCION B - BASE DE DATOS VACIA DESDE CERO:
+1. Ejecutar SOLAMENTE 01_INSTALACION_NUEVA.sql en MySQL Workbench.
+2. No recupera cuentas, contrasenas, reservas o mensajes reales.
+
+OPCION C - TIENES UNA BASE ANTIGUA INSTALADA:
+1. Haz respaldo primero.
+2. Ejecutar SOLO 02_ACTUALIZAR_BASE_EXISTENTE.sql cuando el esquema corresponda a la version previa del proyecto.
+3. No ejecutar 01 y 02 juntos por costumbre.
+
+CONEXION JAVA -> MYSQL:
+El archivo src/main/java/pe/isaacsportgrass/Database.java utiliza por defecto 127.0.0.1:3306, root y clave vacia. En la otra computadora el usuario, contrasena o puerto pueden ser distintos. Configurar ISG_DB_URL / ISG_DB_USER / ISG_DB_PASSWORD en el entorno de Tomcat o propiedades de la JVM para adaptar a esa PC.
+
+COMPROBANTES Y QR YAPE:
+Los archivos de imagen NO se almacenan dentro del SQL. Copiar tambien la carpeta privada de pagos en la PC de origen, normalmente bajo la carpeta de usuario: IsaacSportGrassPrivado/pagos. Configurar ISG_UPLOAD_DIR si es necesario.
+
+ESTE PAQUETE NO GARANTIZA QUE FUNCIONE SIN CONFIGURAR TOMCAT, JDK, MYSQL Y CLAVES EN LA PC NUEVA. NO HEMOS EJECUTADO PRUEBA REAL EN ESA PC.
